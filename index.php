@@ -76,21 +76,56 @@
                 </li><?php
             }?>
         </ul>
-        
-        <style>
-        ul {
-        list-style-type: none;
-        }
-        </style>
+
     </section>
     
+    <hr>
+
+    <section class="snack-2">
+        <!-- Snack 2
+        Passare come parametri GET name, mail e age e verificare (cercando i metodi che non conosciamo nella documentazione)
+        che name sia più lungo di 3 caratteri, che mail contenga un punto e una chiocciola e che age sia un numero. Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” -->
+        <h1>Snack 2</h1>
+        <form action="" method="get">
+            <input type="text" name="name" placeholder="name">
+            <input type="text" name="mail" placeholder="mail">
+            <input type="text" name="age" placeholder="age">
+            <button>send</button>
+        </form>
+
+        <?php
+            // if (isset($_GET['name'])) {
+            //     $name = $_GET['name'];
+            // } else{
+            //     $name = '';
+            // }
+
+            // è come if else sopra ^
+            $name = $_GET['name'] ?? '';
+            $mail = $_GET['mail'] ?? '';
+            $age = $_GET['age'] ?? '';
+
+            $finalMessage = '';
+            // controlli: name ha + di 3 caratteri, in mail presenti (con strpos) . e @ , age è un numero 
+            if (strlen($name) > 3 && strpos($mail, '.') && strpos($mail, '@') && is_numeric($age)){
+                $finalMessage = 'Accesso riuscito';
+            } else{
+                $finalMessage = 'Accesso nagato';
+            }
+
+            echo($finalMessage)
+            ?>
+    </section>
+
+    <style>
+    ul {
+        list-style-type: none;
+    }
+    </style>
 </body>
 </html>
 
 
-<!-- Snack 2
-Passare come parametri GET name, mail e age e verificare (cercando i metodi che non conosciamo nella documentazione)
-che name sia più lungo di 3 caratteri, che mail contenga un punto e una chiocciola e che age sia un numero. Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” -->
 
 <!-- Snack 4
 Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta -->
