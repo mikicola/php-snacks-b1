@@ -13,7 +13,7 @@
         Olimpia Milano - Cantù | 55-60 -->
         <h1>Snack 1</h1>
         <h2>Risultati partite</h2>
-        <ul><?php
+        <ul style="list-style-type: none;"><?php
             /*
             //es prova
             $foo = array(
@@ -86,6 +86,7 @@
         Passare come parametri GET name, mail e age e verificare (cercando i metodi che non conosciamo nella documentazione)
         che name sia più lungo di 3 caratteri, che mail contenga un punto e una chiocciola e che age sia un numero. Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” -->
         <h1>Snack 2</h1>
+        <h2>Inserisci i tuoi dati</h2>
         <form action="" method="get">
             <input type="text" name="name" placeholder="name">
             <input type="text" name="mail" placeholder="mail">
@@ -108,27 +109,44 @@
             $finalMessage = '';
             // controlli: name ha + di 3 caratteri, in mail presenti (con strpos) . e @ , age è un numero 
             if (strlen($name) > 3 && strpos($mail, '.') && strpos($mail, '@') && is_numeric($age)){
-                $finalMessage = 'Accesso riuscito';
+                $finalMessage = '<p style="color: green;">Accesso riuscito</p>';
             } else{
-                $finalMessage = 'Accesso nagato';
+                $finalMessage = '<p style="color: red;">Accesso negato</p>';
             }
 
             echo($finalMessage)
             ?>
     </section>
 
-    <style>
-    ul {
-        list-style-type: none;
+    <hr>
+
+    <section class="snack-4">
+    <!-- Snack 4
+    Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta -->
+    <h1>Snack 4</h1>
+    <?php
+    $randomNum = rand(1,100);
+    $arrRandomNumbers = [];
+
+    while(count($arrRandomNumbers)<15){
+        $randomNum = rand(1,100);
+        
+        // in_array controlla se ci sono doppioni
+        if (in_array ($randomNum, $arrRandomNumbers)){
+            $arrRandomNumbers[] = $randomNum; 
+        }
     }
-    </style>
+
+    // var_dump($randomNum)
+    ?>
+
+    <span><?= $randomNum ?></span>
+    </section>
 </body>
 </html>
 
 
 
-<!-- Snack 4
-Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta -->
 
 <!-- Snack 5
 Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo. -->
