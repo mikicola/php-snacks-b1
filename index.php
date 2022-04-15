@@ -13,39 +13,75 @@
         Olimpia Milano - Cantù | 55-60 -->
         <h1>Snack 1</h1>
         <h2>Risultati partite</h2>
-        <?php
-        $partite = array(
-            [
-                'casa' =>[
-                    'squadra' => 'Milano',
-                    'punteggio' => 55,
+        <ul><?php
+            /*
+            //es prova
+            $foo = array(
+                'bar' => 'baz');
+            echo "Hello {$foo['bar']}!"; // Hello baz!
+            */
+            $partite = array(
+                [
+                    'casa' =>[
+                        'squadra' => 'Olimpia Milano',
+                        'punteggio' => 55,
+                    ],
+
+                    'ospite' =>[
+                        'squadra' => 'Cantù',
+                        'punteggio' => 60,
+                    ],
                 ],
 
-                'ospite' =>[
-                    'squadra' => 'Cantù',
-                    'punteggio' => 60,
+                [
+                    'casa' =>[
+                        'squadra' => 'Roma',
+                        'punteggio' => 45,
+                    ],
+
+                    'ospite' =>[
+                        'squadra' => 'Napoli',
+                        'punteggio' => 40,
+                    ],
                 ],
-            ],
+                [
+                    'casa' =>[
+                        'squadra' => 'Lecce',
+                        'punteggio' => 50,
+                    ],
 
-            [
-                'casa' =>[
-                    'squadra' => 'Roma',
-                    'punteggio' => 45,
+                    'ospite' =>[
+                        'squadra' => 'Trieste',
+                        'punteggio' => 40,
+                    ],
                 ],
+                [
+                    'casa' =>[
+                        'squadra' => 'Venezia',
+                        'punteggio' => 50,
+                    ],
 
-                'ospite' =>[
-                    'squadra' => 'Napoli',
-                    'punteggio' => 40,
+                    'ospite' =>[
+                        'squadra' => 'Firenze',
+                        'punteggio' => 65,
+                    ],
                 ],
-            ],
-        );
-
-
-        //es prova
-        $foo = array(
-            'bar' => 'baz');
-        echo "Hello {$foo['bar']}!"; // Hello baz!
-        ?>
+            );
+            for ($i=0; $i < count($partite); $i++) { ?>
+                <li>
+                <span><?=($partite[$i]['casa']['squadra'])?></span> -
+                <span><?=($partite[$i]['ospite']['squadra'])?></span> |
+                <span><?=($partite[$i]['casa']['punteggio'])?></span> -
+                <span><?=($partite[$i]['ospite']['punteggio'])?></span>
+                </li><?php
+            }?>
+        </ul>
+        
+        <style>
+        ul {
+        list-style-type: none;
+        }
+        </style>
     </section>
     
 </body>
