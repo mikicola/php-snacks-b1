@@ -124,23 +124,51 @@
     <!-- Snack 4
     Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta -->
     <h1>Snack 4</h1>
+    <h2>15 numeri casuali e unici</h2>
     <?php
-    $randomNum = rand(1,100);
     $arrRandomNumbers = [];
 
-    while(count($arrRandomNumbers)<15){
+    while(count($arrRandomNumbers) < 15){
         $randomNum = rand(1,100);
         
         // in_array controlla se ci sono doppioni
-        if (in_array ($randomNum, $arrRandomNumbers)){
+        if (!in_array ($randomNum, $arrRandomNumbers)){
             $arrRandomNumbers[] = $randomNum; 
+            ?>
+            <span><?= $randomNum ?>, </span>
+            <?php
         }
     }
-
-    // var_dump($randomNum)
+    // var_dump($randomNum);
     ?>
+    
+    </section>
 
-    <span><?= $randomNum ?></span>
+    <hr>
+
+    <section class="snack-5">
+        <h1>Snack 5</h1>
+        <!-- Snack 5
+        Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo. -->
+        <?php
+            $paragrafone = "Un paragrafo è una suddivisione interna di un capitolo. Per scelta dell'autore, un capitolo può contenere la spiegazione di un singolo concetto o unità di pensiero (quindi esaurirsi in alcune pagine), oppure può essere molto strutturato al proprio interno. In questo secondo caso è utile suddividere il capitolo in diverse sezioni interne: questi sono i paragrafi. Ciascun paragrafo è individuato da un titolo.
+            Soprattutto nei testi argomentativi il paragrafo ha una struttura precisa: deve essere costituito da una prima parte che introduce l'idea principale (la tesi), una parte centrale, o corpo del testo, che sostiene l'idea iniziale con argomenti a favore e una parte conclusiva che dimostra la validità della seconda parte per sostenere l'idea o la tesi espressa.
+            Un paragrafo può essere suddiviso a sua volta in sotto-paragrafi, per approfondire in modo più specifico alcune parti del paragrafo stesso.
+            In tipografia generalmente i capitoli vengono indicati con numeri romani e i paragrafi con numeri arabi. Oggi è invalso l'uso anglosassone, secondo il quale: a) sia i capitoli che i paragrafi sono indicati con numeri arabi; b) separati da un punto.";
+
+            echo '<div style="background-color: #dddddd;">' . 'Paragrafo iniziale:' . '</div>' ;
+            echo ($paragrafone);
+
+            // explode ad ogni . in $paragrafone divide
+            $arrParagrafi = explode('.', $paragrafone);
+            // var_dump($arrParagrafi);
+
+            echo '<div style= "background-color: #dddddd; margin-top: 3rem">' . 'Paragrafo iniziale suddiviso:' . '</div>';
+
+            for ($i = 0; $i < count($arrParagrafi); $i++) { ?>
+                <p><?= $arrParagrafi[$i] ?></p> <?php
+                                                        }
+        ?>
     </section>
 </body>
 </html>
@@ -148,5 +176,3 @@
 
 
 
-<!-- Snack 5
-Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo. -->
